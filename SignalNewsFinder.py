@@ -7,7 +7,7 @@ with open("twitter_credentials.json", "r") as json_file:
 
 python_tweets = Twython(data['CONSUMER_KEY'], data['CONSUMER_SECRET'])
 
-query = { 'q' : 'testing',
+query = { 'q' : 'Georgia',
         'result_type' : 'popular',
         'count' : 10,
         'lang': 'en',
@@ -25,5 +25,4 @@ for status in python_tweets.search(**query)['statuses']:
 df = pd.DataFrame(dict_)
 df.sort_values(by='favorite_count', inplace=True, ascending=False)
 df.head(5)
-
 print (df)
